@@ -29,8 +29,8 @@ module Undress
       alt = e.has_attribute?("alt") ? "(#{e["alt"]})" : ""
       "!#{e["src"]}#{alt}!"
     }
-    rule_for(:strong)  {|e| "*#{attributes(e)}#{content_of(e)}*" }
-    rule_for(:em)      {|e| "_#{attributes(e)}#{content_of(e)}_" }
+    rule_for(:strong, :b)  {|e| "*#{attributes(e)}#{content_of(e)}*" }
+    rule_for(:em, :i)      {|e| "_#{attributes(e)}#{content_of(e)}_" }
     rule_for(:code)    {|e| "@#{attributes(e)}#{content_of(e)}@" }
     rule_for(:cite)    {|e| "??#{attributes(e)}#{content_of(e)}??" }
     rule_for(:sup)     {|e| surrounded_by_whitespace?(e) ? "^#{attributes(e)}#{content_of(e)}^" : "[^#{attributes(e)}#{content_of(e)}^]" }
